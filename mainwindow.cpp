@@ -3,6 +3,7 @@
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QIcon>
+#include <QSoundEffect>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
@@ -145,6 +146,12 @@ void MainWindow::handleButtonClick() {
     if (gameOver) return;
     QPushButton* btn = qobject_cast<QPushButton*>(sender());
     if (btn->text() != "") return;
+
+    // Звук нажатия
+    QSoundEffect* clickSound = new QSoundEffect(this);
+    clickSound->setSource(QUrl("qrc:/sounds/click.wav"));
+    clickSound->setVolume(0.5);  // Громкость от 0.0 до 1.0
+    clickSound->play();
 
     btn->setText(xTurn ? "X" : "O");
     xTurn = !xTurn;

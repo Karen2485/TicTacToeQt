@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>tictactoe.png</file>
+        <file>sounds/click.wav</file>
     </qresource>
 </RCC>
