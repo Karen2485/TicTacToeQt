@@ -44,7 +44,7 @@
 Клонировать проект:
 
 ```bash
-git clone https://github.com/ТВОЙ_НИК/ИМЯ_РЕПО.git
+git clone https://github.com/Karen2485/TicTacToeQt
 ```
 Открыть проект через Qt Creator (.pro файл).
 Нажать Build → Run.
