@@ -27,7 +27,7 @@
 
 ![Меню выбора режима](game_mode_menu.png)
 
-![Игровое поле](https://via.placeholder.com/600x400?text=Game+Board)
+![Игровое поле](game_board.png)
 
 ---
 
