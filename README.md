@@ -25,7 +25,7 @@
 ## 📷 Скриншоты
 
 
-![Меню выбора режима](https://via.placeholder.com/600x400?text=Game+Mode+Menu)
+![Меню выбора режима](game_mode_menu.png)
 
 ![Игровое поле](https://via.placeholder.com/600x400?text=Game+Board)
 
