@@ -28,3 +28,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resources.qrc
 QT += multimedia
+RC_FILE = appicon.rc

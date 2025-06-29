@@ -9,27 +9,31 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
     this->setWindowIcon(QIcon(":/tictactoe.png"));
+
     QStringList modes = { "Two Players", "Vs AI" };
     bool ok;
-    QString choice = QInputDialog::getItem(this, "Select Game Mode", "Mode:", modes, 0, false, &ok);
 
-    if (!ok) {
-        QApplication::quit();
-        return;
-    }
+    QString choice = QInputDialog::getItem(this, "Select Game Mode", "Mode:", modes, 0, false, &ok);
+    if (!ok) exit(0);
 
     if (choice == "Two Players") {
         currentMode = TwoPlayers;
 
-        playerXName = QInputDialog::getText(this, "Player X", "Enter name for Player X:");
-        playerOName = QInputDialog::getText(this, "Player O", "Enter name for Player O:");
+        playerXName = QInputDialog::getText(this, "Player X", "Enter name for Player X:", QLineEdit::Normal, "", &ok);
+        if (!ok || playerXName.isEmpty()) exit(0);
+
+        playerOName = QInputDialog::getText(this, "Player O", "Enter name for Player O:", QLineEdit::Normal, "", &ok);
+        if (!ok || playerOName.isEmpty()) exit(0);
 
     } else {
         currentMode = VsAI;
 
-        playerXName = QInputDialog::getText(this, "Your Name", "Enter your name:");
+        playerXName = QInputDialog::getText(this, "Your Name", "Enter your name:", QLineEdit::Normal, "", &ok);
+        if (!ok || playerXName.isEmpty()) exit(0);
+
         playerOName = "AI";
     }
+
     this->setWindowTitle("TicTacToe");
 
     defaultStyle = "QPushButton {"
@@ -201,7 +205,8 @@ void MainWindow::checkWin() {
             btn->setStyleSheet(
                 "QPushButton {"
                 "background-color: wheat;"
-                "border: 3px solid orange;"
+                "border: 2px solid orange;"
+                "border-radius: 10px;"
                 "font-weight: bold;"
                 "font-size: 37px;"
                 "}"
